@@ -58,7 +58,7 @@ const UserController = {
  
   addFriend(req, res) {
     // Find the user by ID and add a friend to their friend list
-    user.findByIdAndUpdate(
+    User.findByIdAndUpdate(
       { _id: req.params.userId },
       { $addToSet: { friends: req.body.friendId || req.params.friendId } },
       { new: true }
