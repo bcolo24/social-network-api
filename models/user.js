@@ -6,18 +6,18 @@ const userSchema = new Schema(
   {
     // Define the 'username' field with the following properties:
     username: {
-      type: String,     // Data type: String
-      required: true,   // Field is required
-      unique: true,     // Field must be unique
-      trim: true,       // Trim whitespace from both ends of the string
+      type: String,     
+      required: true,   
+      unique: true,     
+      trim: true,       
     },
      
     // Define the 'email' field with the following properties:
     email: {
-      type: String,     // Data type: String
-      required: true,   // Field is required
-      unique: true,     // Field must be unique
-      match: [          // Match for the email field: The regex pattern checks for a valid email address format.
+      type: String,     
+      required: true,   
+      unique: true,     
+      match: [       
         /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
         "Please use a valid email address",
       ],
@@ -26,25 +26,25 @@ const userSchema = new Schema(
     // Define the 'friends' field as an array of ObjectIds referencing the 'User' model
     friends: [
       {
-        type: Schema.Types.ObjectId,  // Data type: ObjectId
-        ref: 'User',                   // Reference to the 'User' model
+        type: Schema.Types.ObjectId,  
+        ref: 'User',                   
       }
     ],
 
     // Define the 'thoughts' field as an array of ObjectIds referencing the 'Thought' model
     thoughts: [
       {
-        type: Schema.Types.ObjectId,  // Data type: ObjectId
-        ref: 'Thought',                // Reference to the 'Thought' model
+        type: Schema.Types.ObjectId,  
+        ref: 'Thought',       
       }
     ],
   },
   {
     // Define options for schema configuration
     toJSON: {
-      virtuals: true, // Enables virtual properties to be displayed when a user document is transformed into JSON format
+      virtuals: true, 
     },
-    id: false,        // Disables the default '_id' field in the User model to be returned when calling toJSON() method
+    id: false,        
   }
 );
 
